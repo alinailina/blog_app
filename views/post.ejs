@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+<body>
+    <%- include("./partials/nav.ejs") %>
+    <h1><%= post.title %></h1>
+    <p><%= post.body %></p>
+    <button id="delete" data-num="<%= post._id %>">Delete post</button>
+<%- include("./partials/footer.ejs") %>
+
+<script>
+    const myElement = document.querySelector("#delete");
+    myElement.addEventListener("click", e => {
+        const endpoint = `/posts/${myElement.dataset.num}`;
+        console.log(endpoint);
+        fetch(endpoint, {
+            method: "DELETE"
+        })
+        .then((response)=> response.json())
+        .then (data => window.location.href = data.redirect)
+        .catch (err => console.log(err));
+    })
+</script>
+</body>
+</html>

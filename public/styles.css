@@ -1,0 +1,22 @@
+body {
+  padding: 25px 50px;
+  width: 75vw;
+}
+
+a {
+  margin-right: 25px;
+}
+
+h1,
+footer {
+  margin: 25px 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  color: gray;
+}
